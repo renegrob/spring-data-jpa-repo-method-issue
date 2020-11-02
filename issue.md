@@ -71,17 +71,15 @@ An `UnableToParseMethodException`is thrown if nested camel-case property address
 
 **To Reproduce**
 
-https://github.com/renegrob/spring-data-api-issues
+Checkout https://gitlab.ti8m.ch/gro/spring-data-jpa-repo-method-issue
 
 Steps to reproduce the behavior:
-1. Comment org.acme.resteasy.springdata.ClassicCarRepository.findAllUsedCarBrandIds and org.acme.resteasy.ExampleResource#classicCars()
-2. Execute `./mvnw compile quarkus:dev` on the command line
+1. Execute `./mvnw compile quarkus:dev` on the command line
 
 Error in the console output:
 ```
-2020-10-29 08:34:01,412 ERROR [io.qua.dep.dev.IsolatedDevModeMain] (main) Failed to start quarkus: java.lang.RuntimeException: io.quarkus.builder.BuildException: Build failure: Build failed due to errors
-	[error]: Build step io.quarkus.spring.data.deployment.SpringDataJPAProcessor#build threw an exception: io.quarkus.spring.data.deployment.UnableToParseMethodException: Entity org.acme.resteasy.springdata.ClassicCarEntity does not contain a field named: carBrandId. Offending method is findByCarBrandId
-	at io.quarkus.spring.data.deployment.MethodNameParser.parse(MethodNameParser.java:225)
+2020-11-02 16:33:45,534 ERROR [io.qua.dep.dev.IsolatedDevModeMain] (main) Failed to start quarkus: java.lang.RuntimeException: io.quarkus.builder.BuildException: Build failure: Build failed due to errors
+	[error]: Build step io.quarkus.spring.data.deployment.SpringDataJPAProcessor#build threw an exception: io.quarkus.spring.data.deployment.UnableToParseMethodException: Entity org.acme.resteasy.entities.ClassicCarEntity does not contain a field named: raceCarDriverTeamName. Offending method is findByRaceCarDriverTeamName
 ```
 
 **Screenshots**
