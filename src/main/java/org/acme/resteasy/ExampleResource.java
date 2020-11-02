@@ -36,4 +36,12 @@ public class ExampleResource {
         List<ClassicCarEntity> cars = classicCarRepository.findByRaceCarDriverTeamName(teamName);
         return cars.stream().map(ClassicCarEntity::getName).collect(Collectors.joining(", "));
     }
+
+    @Path("cars/classic/{brandId}/{teamName}")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String classicCars(@PathParam("brandId") String brandId, @QueryParam("teamName") String teamName) {
+        List<ClassicCarEntity> cars = classicCarRepository.findByRaceCarDriverTeamNameAndCarBrandId(brandId, teamName);
+        return cars.stream().map(ClassicCarEntity::getName).collect(Collectors.joining(", "));
+    }
 }

@@ -24,4 +24,12 @@ public interface ClassicCarRepository extends JpaRepository<ClassicCarEntity, St
      * @return a list of {@link ClassicCarEntity}
      */
     List<ClassicCarEntity> findByRaceCarDriverTeamName(String teamName);
+
+    /**
+     * Camel case issue
+     * @param teamName
+     * @param carBrandId
+     * @return a list of {@link ClassicCarEntity}
+     */
+    List<ClassicCarEntity> findByRaceCarDriverTeamNameAndCarBrandId(String teamName, String carBrandId);
 }
